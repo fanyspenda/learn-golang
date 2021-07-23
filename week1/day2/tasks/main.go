@@ -88,6 +88,7 @@ func bilanganPrima() {
 	}
 }
 
+//soal 5
 func palindrome() {
 	var word string
 	fmt.Print("masukkan kata: ")
@@ -104,6 +105,7 @@ func palindrome() {
 	}
 }
 
+//soal 6
 func pangkat(base, pangkat int) int {
 	var result int = 1
 	for i := 1; i <= pangkat; i++ {
@@ -112,6 +114,7 @@ func pangkat(base, pangkat int) int {
 	return result
 }
 
+//soal 7
 func playWithAsterisk(n int) {
 	for i := n; i >= 0; i-- {
 
@@ -128,6 +131,7 @@ func playWithAsterisk(n int) {
 	}
 }
 
+//soal 8
 func cetakTabelPerkalian(n int) {
 
 	//looping untuk baris pertama
