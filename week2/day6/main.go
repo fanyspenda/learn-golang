@@ -1,32 +1,42 @@
 package main
 
 func main() {
-	//CONCURRENT
-	// task berjalan secara sendiri-sendiri (independent)
+	/*
+		Problem Solving Paradigma
+		 1. Complete search (brute force)
+		 2. Divide and Conquer
+		 3. Greedy
+		 4. Dynamic Programming
 
-	//Kapan lebih baik pakai concurrency?
-	//ketika ada
-	// fmt.Println("CONCURRENT")
+		 //COMPLETE SEARCH - O(n)
+		 - misal ada data di array[5], maka dicari sesuai panjang arraynya
+		 - dipakai jika tidak ada solusi lain (last solution)
 
-	//SEQUENTIAL
-	//task baru tidak boleh dimulai sebelum task sebelumnya selesai
+		 //DIVIDE AND CONQUER
+		 - Dibagi, lalu dicari.
+		 - Biasanya dipakai di binary search
+		 - Syaratnya, harus diurutkan dulu
 
-	//PARALLEL
-	//multiple tasks dijalankan secara bersamaan
-	//syaratnya, harus punya multi-core machines
+		 //GREEDY
+		 - mencari nilai local optimal, bukan global optimal.
+		 - misal dari kota A akan pergi menuju kota Z. dari A, ada bisa melalui 2 kota, C dan D.
+		 maka, dari A akan dicari jarak antara A ke C apakah lebih singkat dari A ke D.
+		 Kekurangannya, Jika A ke C lebih kecil, tapi dari C ke Z berjarak lebih jauh dari D ke Z,
+		 maka itu tidak akan terdeteksi.
 
-	//FEATURE GO
-	// Concurrent execution (Goroutines)
-	// Synchronization and messaging (Channels)
-	// Multi-way concurrent control (Select)
+		 jika menggunakan global optimal, maka nanti akan dilist dahulu tiap-tiap jalur dari A ke Z.
+		 lalu dicari yang paling singkat.
+		 kekurangan dari GREEDY, dia memang lebih cepat dari yang menggunakan global optimal, tapi bisa jadi
+		 tidak efektif.
+		 kekurangan mencari global optimal, dia memang efektif, tapi lama.
 
-	//GOROUTINES
-	//merupakan fungsi yang berjalan secara concurrent (mirip asynchronous)
+		 //DYNAMIC PROGRAMMING
+		 1. Top-Down => menggunakan teknik memoization
+		 2. Bottom-up => teknik Tabulation
 
-	//akhirnya, muncul masalah racing time dimana goroutines sedang memproses data
-	//tapi proses di bawahnya berjalan dahulu, padahal pengennya synchronous
 
-	// handlingnya dengan 3 cara, yang intinya sama. yaitu
-	//1. Sync.waitGroup
+
+
+	*/
 
 }
