@@ -31,8 +31,14 @@ func (s *Student) Encode() (nameEncode string) {
 	return nameEncode
 }
 
-//Decode ...
 //algoritmanya ternyata sama dengan encode karena tinggal dibalik saja
+
+//Decode ...
+//jika dengan bintang(pointer), maka merefer dari value instansiasinya.
+//jika tanpa bintang, maka variable yang dijadikan parameter akan dicopy ke variable parameter.
+//jadi, jika kita mengubah value dari parameter, value aslinya tidak akan berubah.
+//misal, func ubahA(a int) {a=2}; ubahA(b) => nilai b tidak akan berubah
+//misal, func ubahA(a *int) {a=2}; ubahA(b) => nilai b berubah
 func (s *Student) Decode() (nameDecode string) {
 
 	for _, v := range s.NameEncode {
