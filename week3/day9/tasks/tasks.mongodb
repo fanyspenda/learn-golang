@@ -1,0 +1,935 @@
+// MongoDB Playground
+
+// membuat user baru
+db.createUser({
+  user: "fanyervansyah",
+  pwd: "fanyervansyah",
+  roles: []
+})
+
+// problem 1
+//a
+//membuat collection
+db.createCollection("operators")
+db.operators.insertMany([
+    {
+        operator_id: 1,
+        name: "Tinky Winky",
+        updated_at: Date()
+    },
+    {
+        operator_id: 2,
+        name: "Dipsy",
+        updated_at: Date()
+    },
+    {
+        operator_id: 3,
+        name: "Lala",
+        updated_at: Date()
+    },
+    {
+        operator_id: 4,
+        name: "Po",
+        updated_at: Date()
+    },
+    {
+        operator_id: 5,
+        name: "Jane Doe",
+        updated_at: Date()
+    }
+])
+
+// b
+db.createCollection("product_types")
+db.product_types.insertMany([
+    {
+        product_type_id: 1,
+        name: "type 1",
+        
+    },
+    {
+        product_type_id: 2,
+        name: "type 2",
+        
+    },
+    {
+        product_type_id: 3,
+        name: "type 3",
+        
+    }
+])
+
+// c, d, e
+db.products.insertMany([
+    {
+        product_type_id:1,
+        operator_id:3,
+        code:"0911",
+        name:"Pokeball",
+        status:1
+    },
+    {
+        product_type_id:1,
+        operator_id:3,
+        code:"0912",
+        name:"Greatball",
+        status:2
+    },
+    {
+        product_type_id:2,
+        operator_id:1,
+        code:"0811",
+        name:"Togemon Action Figure",
+        status:1
+    },
+    {
+        product_type_id:2,
+        operator_id:1,
+        code:"0812",
+        name:"Lilymon Action Figure",
+        status:2
+    },
+    {
+        product_type_id:2,
+        operator_id:1,
+        code:"0813",
+        name:"Rosemon Action Figure",
+        status:3
+    },
+    {
+        product_type_id:3,
+        operator_id:4,
+        code:"0711",
+        name:"Gundam Sazabi",
+        status:1
+    },
+    {
+        product_type_id:3,
+        operator_id:4,
+        code:"0812",
+        name:"Gundam Lunagazer",
+        status:2
+    },
+    {
+        product_type_id:3,
+        operator_id:4,
+        code:"0813",
+        name:"Gundam Stargazer",
+        status:3
+    },
+])
+
+//f
+db.product_descriptions.insertOne(
+    {
+        product_description_id: 1,
+        description: "this is description"
+    }
+)
+
+// g
+db.payment_methods.insertMany([
+    {
+        payment_method_id: 1,
+        name: "cash",
+        status: 1
+    },
+    {
+        payment_method_id: 2,
+        name: "Credit",
+        status: 2
+    },
+    {
+        payment_method_id: 3,
+        name: "Cash On Delivery",
+        status: 3
+    }
+])
+
+// h
+db.users.insertMany([
+    {
+        user_id: 1,
+        name: "Louis",
+        status: 1,
+        gender: "m",
+        dob: new Date("1987-05-18T16:00:00Z")
+    },
+    {
+        user_id: 2,
+        name: "Zoey",
+        status: 2,
+        gender: "f",
+        dob: new Date("1993-02-14T16:00:00Z")
+    },
+    {
+        user_id: 3,
+        name: "Coach",
+        status: 1,
+        gender: "m",
+        dob: new Date("1977-11-18T16:00:00Z")
+    },
+    {
+        user_id: 4,
+        name: "Nick",
+        status:1,
+        gender: "m",
+        dob: new Date("1989-08-24T16:00:00Z")
+    },
+    {
+        user_id: 5,
+        name: "Rochelle",
+        status: 2,
+        gender: "f",
+        dob: new Date("1985-06-02T16:00:00Z")
+    }
+])
+
+// i
+db.transactions.insertMany([
+    {
+        user_id: 1,
+        transactions: [
+            {
+                transactions_details_id:1,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:2,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:3,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        user_id: 2,
+        transactions: [
+            {
+                transactions_details_id:1,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:2,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:3,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        user_id: 3,
+        transactions: [
+            {
+                transactions_details_id:1,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:2,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:3,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        user_id: 4,
+        transactions: [
+            {
+                transactions_details_id:1,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:2,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:3,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        user_id: 5,
+        transactions: [
+            {
+                transactions_details_id:1,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:2,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            },
+            {
+                transactions_details_id:3,
+                transaction_details: [
+                    {
+                        product_id: "6109ccaec1ebc89895df9b57",
+                        qty: 2,
+                        price: 2000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b58",
+                        qty: 2,
+                        price: 3000                        
+                    },
+                    {
+                        product_id: "6109ccaec1ebc89895df9b59",
+                        qty: 2,
+                        price: 4000
+                    }
+                ]
+            }
+        ]
+    }
+])
+
+// 2.
+// a
+db.users.find({
+    gender: "m"
+})
+
+// b
+db.products.find({
+    "_id": ObjectId("6109ccaec1ebc89895df9b59")
+})
+
+// c
+db.users.count({
+    gender: "f"
+})
+
+// d
+db.users.find().sort({name: 1})
+
+// e
+db.products.find().limit(5)
+
+// 3.
+// a.
+db.products.findOneAndUpdate({
+        "_id": ObjectId("6109ccaec1ebc89895df9b59")
+    },
+    {
+        $set: {
+          name: "Product Dummy"
+        }
+    }
+)
+
+//b
+    db.transactions
+    .find(
+        {
+            transactions: {
+                $elemMatch: {
+                    transaction_details: {
+                        $elemMatch: {
+                            product_id: "6109ccaec1ebc89895df9b57"
+                        }
+                    }
+                }
+            }
+        }
+    ).forEach(function(all) {
+        all.transactions.forEach(function(transaction) {
+            transaction.transaction_details.forEach(function(detail) {
+                if(detail.product_id=="6109ccaec1ebc89895df9b57"){
+                    detail.qty=3;
+                }
+            })
+        })
+        
+
+        db.transactions.replaceOne({_id: ObjectId(all._id)}, all)
+    })
+
+// 4.
+// a
+db.products.findOneAndDelete({
+    _id: ObjectId("6109ccaec1ebc89895df9b58")
+})
+
+// b
+db.products.deleteMany({
+    product_type_id: 1
+})
+
+
+//problem 2
+use bookstore
+db.books.insertMany([
+    {
+        _id:1,
+        title:"Wawasan‌ Pancasila",
+        authorID: 1,
+        publisherID: 1,
+        price: 71200,
+        stats: {
+        page: 324,
+        weight: 300
+        },
+        publishedAt: new Date("2018-10-01"),
+        category: ["social", "politics"]
+    },
+    {
+        _id: 2,
+        title:"Mata Air Keteladanan",
+        authorID: 1,
+        publisherID: 2,
+        price: 106250,
+        stats:{
+        page: 672,
+        weight: 650
+        },
+        publishedAt: new Date("2017-09-01"),
+        category: ["social", "politics"]
+    },
+    {
+        _id: 3,
+        title: "Revolusi Pancasila",
+        authorID: 1,
+        publisherID: 1,
+        price: 54400,
+        stats: {
+        page: 220,
+        weight: 500
+        },
+        publishedAt: new Date("2015-05-01"),
+        category: ["social", "politics"]
+    },
+    {
+        _id: 4,
+        title: "Self Driving",
+        authorID: 2,
+        publisherID: 1,
+        price: 58650,
+        stats: {
+        page: 286,
+        weight: 300
+        },
+        publishedAt: new Date("2018-05-01"),
+        category: ["self-development"]
+    },
+    {
+        _id: 5,
+        title: "Self Disruption",
+        authorID: 2,
+        publisherID: 2,
+        price: 83300,
+        stats: {
+            page: 400,
+            weight: 800
+        },
+        publishedAt: new Date("2018-05-01"),
+        category: ["self-development"]
+    }
+])
+
+db.authors.insertMany([
+    {
+        _id: 1,
+        firstName: "Yudi",
+        lastName: "Latif"
+
+    },
+    {
+        _id: 2,
+        firstName: "Rhenald",
+        lastName: "kasali"
+    }
+])
+
+db.publishers.insertMany([
+    {
+        _id: 1, publisherName: "Expose",
+        _id: 2, publisherName: "Mizan"
+    }
+])
+
+// 1.
+db.books.find({
+    $or: [
+        {
+            authorID: 1
+        },
+        {
+            authorID: 2
+        }
+    ]
+})
+
+// 2.
+db.books.find(
+    {
+        authorID: 1
+    }, 
+    {
+        _id: true,
+        title: true,
+        price: true
+    })
+
+// 3.
+db.books.aggregate(
+    [
+        {
+            
+            $match: {
+              authorID: 2
+            }
+        }, 
+        {
+            $group: {
+                _id: "$authorID",
+                totalPages: {
+                    $sum: "$stats.page"
+                
+                }
+            } 
+        }
+    ]
+)
+
+// 4.
+db.books.aggregate(
+    [
+        {
+            $lookup:{
+                from: "authors",
+                localField: "authorID",
+                foreignField: "_id",
+                as: "authors"
+            }
+        }
+    ]
+)
+
+// 5.
+db.books.aggregate(
+    [
+        {
+            $lookup:{
+                from: "authors",
+                localField: "authorID",
+                foreignField: "_id",
+                as: "author"
+            }
+        },
+        {
+            $lookup:{
+                from: "publishers",
+                localField: "publisherID",
+                foreignField: "_id",
+                as: "publisher"
+            }
+        },        
+    ]
+)
+
+// 6
+db.books.aggregate(
+    [
+        {
+            $lookup:{
+                from: "authors",
+                localField: "authorID",
+                foreignField: "_id",
+                as: "author"
+            }
+        },
+        {
+            $lookup:{
+                from: "publishers",
+                localField: "publisherID",
+                foreignField: "_id",
+                as: "publisher"
+            }
+        },
+        {
+            $unwind: {
+                path: "$author",
+            }
+        },
+        {
+            $unwind: {
+                path: "$publisher",
+            }
+        },
+        {
+            /**
+             * _id: The id of the group.
+             * fieldN: The first field name.
+             */
+            $group: {
+              _id: "$_id",
+              "_id": {
+                  $concat: ["$author.firstName", " ", "$author.lastName"]
+              },
+              "number_of_books": {
+                  $sum: 1
+                },
+                "list_of_books": {
+                    $push: {
+                        $concat: ["$title", " (", "$publisher.publisherName", ")"]
+                    }
+                }
+            }
+        }
+    ]
+)
+
+// 7
+db.books.aggregate([
+    {
+        $project: {
+          _id: "$_id",
+          "title": "$title",
+          "price": "$price",
+          "promo": {
+              $cond: {
+                  if: {
+                      $lt: ["$price", 60000]
+                  },
+                  then: "1%",
+                  else: {
+                      $cond: {
+                          if: {
+                              $and: [
+                                  {$gt: ["$price", 60000]}, 
+                                  {$lt: ["$price", 90000]}
+                                  ]
+                            }, 
+                            then: "2%",
+                            else: "3%"
+                        }
+                    }
+                }
+            }
+        }
+    }
+])
+
+// 8
+db.books.aggregate(
+    [
+        {
+            $lookup:{
+                from: "authors",
+                localField: "authorID",
+                foreignField: "_id",
+                as: "author"
+            }
+        },
+        {
+            $lookup:{
+                from: "publishers",
+                localField: "publisherID",
+                foreignField: "_id",
+                as: "publisher"
+            }
+        },
+        {
+            $project: {
+              title: "$title",
+              price: "$price",
+              author: {
+                  $arrayElemAt: ["$author", 0]
+                },
+              publisher: {
+                  $arrayElemAt: ["$publisher", 0]
+                }
+            }
+        },
+        {
+            $project: {
+              title: "$title",
+              price: "$price",
+              author: {
+                  $concat: ["$author.firstName", " ", "$author.lastName"]
+                },
+              publisher: "$publisher.publisherName"
+            }
+        },
+        {
+            $sort: {
+              price: -1
+            }
+        }
+    ]
+)
+
+// 9
+db.books.aggregate(
+    [
+        {
+            $lookup:{
+                from: "authors",
+                localField: "authorID",
+                foreignField: "_id",
+                as: "author"
+            }
+        },
+        {
+            $lookup:{
+                from: "publishers",
+                localField: "publisherID",
+                foreignField: "_id",
+                as: "publisher"
+            }
+        },
+        {
+            $project: {
+              title: "$title",
+              price: "$price",
+              publisher: {
+                  $arrayElemAt: ["$publisher", 0]
+                }
+            }
+        },
+        {
+            $project: {
+              title: "$title",
+              price: "$price",
+              publisher: "$publisher.publisherName"
+            }
+        },
+        {
+            $skip: 2
+        },
+        {
+            $limit: 2
+        }
+    ]
+)
